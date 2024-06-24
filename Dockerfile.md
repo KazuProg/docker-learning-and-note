@@ -6,6 +6,7 @@
 ベースイメージの指定
 ```
 FROM ubuntu
+FROM ubuntu:22.04
 ```
 
 
@@ -81,3 +82,5 @@ VOLUME /app
 * [Dockerfile を書くベストプラクティス](https://docs.docker.jp/develop/develop-images/dockerfile_best-practices.html)
 * [Dockerfile の ADD と COPY の違いを結論から書く](https://qiita.com/YumaInaura/items/1647e509f83462a37494)
 * [Dockerfileからボリュームを作成する①](https://www.infra-linux.com/menu-docker3/dokerfile1-volume/)
+* [Dockerによる開発環境構築のための概念理解と方法解説](https://qiita.com/S4nTo/items/977d28b0eac316915702)
+
