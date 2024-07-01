@@ -1,0 +1,25 @@
+services:
+  ubuntu:
+    image: ubuntu:latest
+    entrypoint: tail -f /dev/null
+    depends_on:
+      - tailscale
+    network_mode: service:tailscale
+
+  tailscale:
+    image: tailscale/tailscale:latest
+    hostname: ubuntu-with-tailscale
+    env_file: .env.tailscale
+    environment:
+      - TS_STATE_DIR=/var/lib/tailscale
+    volumes:
+      - tailscale-data:/var/lib/tailscale
+      - /dev/net/tun:/dev/net/tun
+    cap_add:
+      - net_admin
+      - sys_module
+    restart: unless-stopped
+
+volumes:
+  tailscale-data:
+    driver: local
