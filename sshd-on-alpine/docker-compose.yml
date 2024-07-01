@@ -1,6 +1,16 @@
 services:
-  app:
+  main:
     build: .
-    hostname: ssh-on-alpine
+    hostname: sshd-on-alpine
+    env_file:
+      - .env
     ports:
       - "22:22"
+    volumes:
+      - ssh_keys:/etc/ssh/keys
+      - user_data:/user_data
+      - ./home:/home
+
+volumes:
+  ssh_keys:
+  user_data:
