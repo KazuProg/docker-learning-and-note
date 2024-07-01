@@ -1,0 +1,6 @@
+services:
+  app:
+    build: .
+    hostname: ssh-on-alpine
+    ports:
+      - "22:22"
